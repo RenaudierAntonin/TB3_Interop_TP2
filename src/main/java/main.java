@@ -25,7 +25,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class main {
-    public static final String xmlFilePath = "C:\\Users\\anton\\Desktop\\Cours\\2A\\TB3\\Interop\\xmlfile.xml";
+    private static final String xmlFilePath = "C:\\Users\\anton\\Desktop\\Cours\\2A\\TB3\\Interop\\xmlfile.xml";
     public static void main(String argv[]) {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -57,10 +57,8 @@ public class main {
             StreamResult streamResult = new StreamResult(new File(xmlFilePath));
             transformer.transform(domSource, streamResult);
             System.out.println("Done creating XML File");
-        } catch (ParserConfigurationException pce) {
+        } catch (ParserConfigurationException | TransformerException pce) {
             pce.printStackTrace();
-        } catch (TransformerException tfe) {
-            tfe.printStackTrace();
         }
     }
 }

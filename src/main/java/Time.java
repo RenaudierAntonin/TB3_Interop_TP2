@@ -6,16 +6,15 @@ import java.util.Date;
 public class Time {
 
 
-    public static Instant parseDatetimestamps(String literal) throws ParseException {
+    private static Instant parseDatetimestamps(String literal) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
         Date date = formatter.parse(literal);
-        Instant instant =date.toInstant();
-        return instant;
-    };
+        return date.toInstant();
+    }
 
-    public static String serializeDatetimestamps(Instant instant) {
+    private static String serializeDatetimestamps(Instant instant) {
         return(instant.toString());
-    };
+    }
 
     public static void main(String args[]) throws ParseException{
         System.out.println(parseDatetimestamps("2018-09-18T23:42:00+0500"));
